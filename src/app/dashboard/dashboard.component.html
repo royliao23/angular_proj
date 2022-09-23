@@ -1,0 +1,29 @@
+<h2>Killers:</h2>
+<p>   https://danielk.tech/home/angular-login-page-and-complete-authentication-demo#create</p>
+<p>1. app module need include the child modules, 
+  
+</p>
+<p>
+    2. need add username and password in login.ts and add ng submit in the login.html. remember the bracket like this: (ngSubmit)="login()"
+   
+</p>
+<p>
+    3. dashboard routing ts need add route to point to dashboar.html 
+</p>
+<p>4. add logout button in dashboard
+</p>
+<p>5. login child root doen't need the authenticate guard
+   <span>
+        path: 'login',
+        loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+         
+   </span>
+</p>
+<p>6. ng g c dashboard/userComponent -m dashboard.module will add new component to the child module dashboard after the version 12, you can see the the component name is changed to app then -user then -component which is the folder of that component</p>
+<p>7. components canbe shared by export components in the child module and import module of the shared into another module </p>
+<app-user-component></app-user-component>
+<p>8.pushed to github and test in jenkins following https://medium.com/aubergine-solutions/continuous-integration-for-angular-with-angular-cli-jenkins-phantomjs-34a870fa096f </p>
+<button (click)="logout()">logout</button>
+
+
+

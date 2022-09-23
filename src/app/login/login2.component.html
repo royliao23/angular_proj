@@ -1,0 +1,24 @@
+<main class="form-signin">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <h1 class="h3 mb-3 fw-normal">Sign In</h1>
+        <div class="form-floating">
+            <label for="floatingInput">Username</label><br>
+            <input type="username" class="form-control" id="floatingInput" [(ngModel)]="usern" formControlName="username">
+            
+            <div *ngIf="loginForm.invalid && usernameControl?.touched && usernameControl.errors">
+                <span *ngIf="usern==='' ">Username is required</span>
+                <span *ngIf="usernameControl.errors['email']">Username must be an email</span>
+            </div>
+        </div>
+        <div class="form-floating">
+            <label for="floatingPassword">Password</label><br>
+            <input type="password" class="form-control" id="floatingPassword"  [(ngModel)]="pwd" formControlName="password">
+            
+            <div *ngIf="loginForm.invalid && passwordControl?.touched && passwordControl.errors">
+                <span *ngIf="pwd.length < 8" >password is required</span>
+                <span *ngIf="pwd==='' ">Password must have at least 8 characters</span>
+            </div>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="this.loginForm.invalid">Sign in</button>
+    </form>
+</main>
